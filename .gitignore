@@ -205,3 +205,9 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+.venv_my_custom_venv_name/
+
+.idea/
+
+.python-version
