@@ -21,14 +21,14 @@ def gravity_potential_point(x, xm, m, G=6.674e-11) :
     -------
         Gravity potential at x due to anomaly at xm; float
     """
-    x = np.array(x, dtype=float).flatten()
-    xm = np.array(xm, dtype=float).flatten()
+    x = np.asarray(x, dtype=float)
+    xm = np.asarray(xm, dtype=float)
     m = float(m)
     G = float(G)
-    r = np.linalg.norm(x - xm)
-    U = (G * m) / r
-    # return G = m / r
+    r = np.linalg.norm(x - xm, axis=-1)
+    U = G * m / r
     return U
+
 
 def gravity_effect_point(x, xm, m, G=6.674e-11) :
     """Compute the vertical gravity effect due to a point
@@ -56,6 +56,6 @@ def gravity_effect_point(x, xm, m, G=6.674e-11) :
     xm = np.array(xm, dtype=float).flatten()
     m = float(m)
     G = float(G)
-    r = np.linalg.norm(x - xm)
-    gz = G * m * (x[2] - xm[2]) / r**3
+    r = np.linalg.norm(x - xm, axis=-1)
+    gz = -G * m * (x[2] - xm[2]) / r**3
     return gz

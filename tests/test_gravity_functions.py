@@ -13,8 +13,6 @@ def test_gravity_functions():
     gep = gravity_effect_point(x, xm, m, G=6.674e-11)
     print(f'Gravity potential point: {gpp}')
     print(f'Gravity effect point: {gep}')
-
-
     return
 
 if __name__ == "__main__":
