@@ -56,24 +56,24 @@ def main():
     for k, z_val in enumerate(zp):
         # U plot (left column)
         ax = axes[k, 0]
-        U_cf_25 = ax.contourf(x_25, y_25, U_25[:,:,k], levels=40, cmap="viridis", vmin=np.min(U_25), vmax=np.max(U_25))
-        ax.plot(x_25, y_25, "xk", markersize=2)  # overlay grid points
-        ax.set_title(f"U at z={z_val} m", fontsize=12, fontweight='bold')
-        ax.set_xlabel("x [m]", fontsize=8),ax.set_ylabel("y [m]", fontsize=8)
-        ax.tick_params(axis="both", labelsize=8)
+        U_cf_25 = ax.contourf(x_25, y_25, U_25[:,:,k], levels=40, cmap='viridis', vmin=np.min(U_25), vmax=np.max(U_25))
+        ax.plot(x_25, y_25, 'xk', markersize=2)  # overlay grid points
+        ax.set_title(f'U at z={z_val} m', fontsize=12, fontweight='bold')
+        ax.set_xlabel('x [m]', fontsize=8),ax.set_ylabel('y [m]', fontsize=8)
+        ax.tick_params(axis='both', labelsize=8)
         cbar = fig.colorbar(U_cf_25, ax=ax)
-        cbar.set_label("g [units]", fontsize=8), cbar.ax.tick_params(labelsize=8)
+        cbar.set_label('g [units]', fontsize=8), cbar.ax.tick_params(labelsize=8)
         # g plot (right column)
         ax1 = axes[k, 1]
-        g_cf_25 = ax1.contourf(x_25, y_25, g_25[:,:,k], levels=40, cmap="plasma", vmin=np.min(g_25), vmax=np.max(g_25))
-        ax1.plot(x_25, y_25, "xk", markersize=2)
-        ax1.set_title(f"g at z={z_val} m", fontsize=12, fontweight="bold")
-        ax1.set_xlabel("x [m]", fontsize=8), ax1.set_ylabel("y [m]", fontsize=8)
-        ax1.tick_params(axis="both", labelsize=8)
+        g_cf_25 = ax1.contourf(x_25, y_25, g_25[:,:,k], levels=40, cmap='plasma', vmin=np.min(g_25), vmax=np.max(g_25))
+        ax1.plot(x_25, y_25, 'xk', markersize=2)
+        ax1.set_title(f'g at z={z_val} m', fontsize=12, fontweight='bold')
+        ax1.set_xlabel('x [m]', fontsize=8), ax1.set_ylabel('y [m]', fontsize=8)
+        ax1.tick_params(axis='both', labelsize=8)
         cbar = fig.colorbar(g_cf_25, ax=ax1)
-        cbar.set_label("g [units]", fontsize=8),cbar.ax.tick_params(labelsize=8)
+        cbar.set_label('g [units]', fontsize=8),cbar.ax.tick_params(labelsize=8)
 
-    fig.suptitle('Survey of 25m for a Single Point Mass', fontweight="bold")
+    fig.suptitle('Survey of 25m for a Single Point Mass', fontweight='bold')
     plt.savefig('../figures/single_mass_25m.png')
 
     plt.show()
@@ -82,24 +82,24 @@ def main():
     for k, z_val in enumerate(zp):
         # U plot (left column)
         ax = axes[k, 0]
-        U_cf_5 = ax.contourf(x_5, y_5, U_5[:,:,k], levels=40, cmap="viridis", vmin=np.min(U_5), vmax=np.max(U_5))
-        ax.plot(x_5, y_5, "xk", markersize=2)  # overlay grid points
-        ax.set_title(f"U at z={z_val} m", fontsize=12, fontweight='bold')
-        ax.set_xlabel("x [m]", fontsize=8),ax.set_ylabel("y [m]", fontsize=8)
-        ax.tick_params(axis="both", labelsize=8)
+        U_cf_5 = ax.contourf(x_5, y_5, U_5[:,:,k], levels=40, cmap='viridis', vmin=np.min(U_5), vmax=np.max(U_5))
+        ax.plot(x_5, y_5, 'xk', markersize=2)  # overlay grid points
+        ax.set_title(f'U at z={z_val} m', fontsize=12, fontweight='bold')
+        ax.set_xlabel('x [m]', fontsize=8),ax.set_ylabel('y [m]', fontsize=8)
+        ax.tick_params(axis='both', labelsize=8)
         cbar = fig.colorbar(U_cf_5, ax=ax)
-        cbar.set_label("g [units]", fontsize=8), cbar.ax.tick_params(labelsize=8)
+        cbar.set_label('g [units]', fontsize=8), cbar.ax.tick_params(labelsize=8)
         # g plot (right column)
         ax1 = axes[k, 1]
-        g_cf_5 = ax1.contourf(x_5, y_5, g_5[:,:,k], levels=40, cmap="plasma", vmin=np.min(g_5), vmax=np.max(g_5))
-        ax1.plot(x_5, y_5, "xk", markersize=2)
-        ax1.set_title(f"g at z={z_val} m", fontsize=12, fontweight="bold")
-        ax1.set_xlabel("x [m]", fontsize=8), ax1.set_ylabel("y [m]", fontsize=8)
-        ax1.tick_params(axis="both", labelsize=8)
+        g_cf_5 = ax1.contourf(x_5, y_5, g_5[:,:,k], levels=40, cmap='plasma', vmin=np.min(g_5), vmax=np.max(g_5))
+        ax1.plot(x_5, y_5, 'xk', markersize=2)
+        ax1.set_title(f'g at z={z_val} m', fontsize=12, fontweight='bold')
+        ax1.set_xlabel('x [m]', fontsize=8), ax1.set_ylabel('y [m]', fontsize=8)
+        ax1.tick_params(axis='both', labelsize=8)
         cbar = fig.colorbar(g_cf_5, ax=ax1)
-        cbar.set_label("g [units]", fontsize=8),cbar.ax.tick_params(labelsize=8)
+        cbar.set_label('g [units]', fontsize=8),cbar.ax.tick_params(labelsize=8)
 
-    fig.suptitle('Survey of 5m for a Single Point Mass', fontweight="bold")
+    fig.suptitle('Survey of 5m for a Single Point Mass', fontweight='bold')
     plt.savefig('../figures/single_mass_5m.png')
 
     plt.show()
