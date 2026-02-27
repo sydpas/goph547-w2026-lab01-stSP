@@ -1,6 +1,4 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import scipy.io as sp
 
 def masses():
     """Creates 5 point masses.

@@ -52,11 +52,18 @@ def main():
                 x= np.array([x_5[i, j], y_5[i, j], z_val])
                 g_5[i,j,k] = gravity_effect_point(x, xm, m, G=6.674e-11)
 
+    #  out of the loop so they don't reset
+    Umin, Umax = np.min(U_25), np.max(U_25)
+    gmin, gmax = np.min(g_25), np.max(g_25)
+
+    U_levels = np.linspace(Umin, Umax, 40)
+    g_levels = np.linspace(gmin, gmax, 40)
+
     fig, axes = plt.subplots(3, 2, figsize=(12, 16))  # 3 rows, 2 columns
     for k, z_val in enumerate(zp):
         # U plot (left column)
         ax = axes[k, 0]
-        U_cf_25 = ax.contourf(x_25, y_25, U_25[:,:,k], levels=40, cmap='viridis', vmin=np.min(U_25), vmax=np.max(U_25))
+        U_cf_25 = ax.contourf(x_25, y_25, U_25[:,:,k], levels=U_levels, cmap='viridis', vmin=Umin, vmax=Umax)
         ax.plot(x_25, y_25, 'xk', markersize=2)  # overlay grid points
         ax.set_title(f'U at z={z_val} m', fontsize=12, fontweight='bold')
         ax.set_xlabel('x [m]', fontsize=8),ax.set_ylabel('y [m]', fontsize=8)
@@ -65,7 +72,7 @@ def main():
         cbar.set_label('g [units]', fontsize=8), cbar.ax.tick_params(labelsize=8)
         # g plot (right column)
         ax1 = axes[k, 1]
-        g_cf_25 = ax1.contourf(x_25, y_25, g_25[:,:,k], levels=40, cmap='plasma', vmin=np.min(g_25), vmax=np.max(g_25))
+        g_cf_25 = ax1.contourf(x_25, y_25, g_25[:,:,k], levels=g_levels, cmap='plasma', vmin=gmin, vmax=gmax)
         ax1.plot(x_25, y_25, 'xk', markersize=2)
         ax1.set_title(f'g at z={z_val} m', fontsize=12, fontweight='bold')
         ax1.set_xlabel('x [m]', fontsize=8), ax1.set_ylabel('y [m]', fontsize=8)
@@ -78,11 +85,17 @@ def main():
 
     plt.show()
 
+    Umin, Umax = np.min(U_5), np.max(U_5)
+    gmin, gmax = np.min(g_5), np.max(g_5)
+
+    U_levels = np.linspace(Umin, Umax, 40)
+    g_levels = np.linspace(gmin, gmax, 40)
+
     fig, axes = plt.subplots(3, 2, figsize=(12, 16))  # 3 rows, 2 columns
     for k, z_val in enumerate(zp):
         # U plot (left column)
         ax = axes[k, 0]
-        U_cf_5 = ax.contourf(x_5, y_5, U_5[:,:,k], levels=40, cmap='viridis', vmin=np.min(U_5), vmax=np.max(U_5))
+        U_cf_5 = ax.contourf(x_5, y_5, U_5[:,:,k], levels=U_levels, cmap='viridis', vmin=Umin, vmax=Umax)
         ax.plot(x_5, y_5, 'xk', markersize=2)  # overlay grid points
         ax.set_title(f'U at z={z_val} m', fontsize=12, fontweight='bold')
         ax.set_xlabel('x [m]', fontsize=8),ax.set_ylabel('y [m]', fontsize=8)
@@ -91,7 +104,7 @@ def main():
         cbar.set_label('g [units]', fontsize=8), cbar.ax.tick_params(labelsize=8)
         # g plot (right column)
         ax1 = axes[k, 1]
-        g_cf_5 = ax1.contourf(x_5, y_5, g_5[:,:,k], levels=40, cmap='plasma', vmin=np.min(g_5), vmax=np.max(g_5))
+        g_cf_5 = ax1.contourf(x_5, y_5, g_5[:,:,k], levels=g_levels, cmap='plasma', vmin=gmin, vmax=gmax)
         ax1.plot(x_5, y_5, 'xk', markersize=2)
         ax1.set_title(f'g at z={z_val} m', fontsize=12, fontweight='bold')
         ax1.set_xlabel('x [m]', fontsize=8), ax1.set_ylabel('y [m]', fontsize=8)
