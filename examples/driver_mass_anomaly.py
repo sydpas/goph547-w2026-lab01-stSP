@@ -1,10 +1,5 @@
 from src.goph547lab01.gravity import(
-    gravity_potential_point,
     gravity_effect_point
-)
-
-from src.goph547lab01.generating_masses import(
-    masses
 )
 
 import numpy as np
@@ -48,11 +43,14 @@ def main():
     y_yz, z_yz = np.meshgrid(yz, xy)
     x_xy, y_xy = np.meshgrid(yz, xz)
 
+    rhomin, rhomax = np.min(rho), 0.60  # 0.75 from observation
+
+    rho_levels = np.linspace(rhomin, rhomax, 40)
 
     # plotting cross sections
     fig, ax = plt.subplots(3,1, figsize=(10,14))
 
-    y_xsec = ax[0].contourf(x_xz, z_xz, rho_xz, levels=40)
+    y_xsec = ax[0].contourf(x_xz, z_xz, rho_xz, levels=rho_levels, vmin=rhomin, vmax=rhomax)
     ax[0].plot(x_mass, z_mass, 'xk', markersize=3, label='Barycentre')
     ax[0].set_xlim(-20, 20), ax[0].set_ylim(-15, -5)
     ax[0].set_xlabel('x [m]', fontsize=8), ax[0].set_ylabel('z [m]', fontsize=8)
@@ -62,7 +60,7 @@ def main():
     cbar=fig.colorbar(y_xsec, ax=ax[0])
     cbar.ax.tick_params(labelsize=8)
 
-    z_xsec = ax[1].contourf(x_xy, y_xy, rho_xy, levels=40)
+    z_xsec = ax[1].contourf(x_xy, y_xy, rho_xy, levels=rho_levels, vmin=rhomin, vmax=rhomax)
     ax[1].plot(x_mass, y_mass, 'xk', markersize=3, label='Barycentre')
     ax[1].set_xlim(-15, 15)
     ax[1].set_ylim(-25, 25)
@@ -73,7 +71,7 @@ def main():
     cbar=fig.colorbar(z_xsec, ax=ax[1])
     cbar.ax.tick_params(labelsize=8)
 
-    x_xsec = ax[2].contourf(y_yz, z_yz, rho_yz, levels=40)
+    x_xsec = ax[2].contourf(y_yz, z_yz, rho_yz, levels=rho_levels, vmin=rhomin, vmax=rhomax)
     ax[2].plot(y_mass, z_mass, 'xk', markersize=3, label='Barycentre')
     ax[2].set_xlim(-15, 15)
     ax[2].set_ylim(-15, -5)
@@ -84,11 +82,10 @@ def main():
     cbar=fig.colorbar(x_xsec, ax=ax[2])
     cbar.ax.tick_params(labelsize=8)
 
-    fig.suptitle('Mean Density Cross Sections with Barycenter', fontweight='bold', fontsize=14)
+    fig.suptitle('Mean Density Cross Sections with Barycenter', fontweight='bold', fontsize=26)
     plt.savefig('../figures/mass_anom.png', dpi=300)
 
     plt.show()
-
 
     # part 3
 
@@ -147,7 +144,7 @@ def main():
         cbar = fig.colorbar(g_cf_5, ax=ax)
         cbar.set_label('g [units]', fontsize=8), cbar.ax.tick_params(labelsize=8)
 
-    fig.suptitle('Survey of 5m for a Forward-Modeled Ground Based Survey', fontweight='bold', fontsize=14)
+    fig.suptitle('Survey of 5m for a Forward-Modeled \nGround Based Survey', fontweight='bold', fontsize=18)
     plt.savefig('../figures/5m_forward_model.png', dpi=300)
     plt.show()
 
@@ -189,12 +186,12 @@ def main():
     cbar = fig.colorbar(g_cf_5, ax=ax1)
     cbar.set_label('∂gz/∂z', fontsize=8), cbar.ax.tick_params(labelsize=8)
 
-    print(f'first order min at 0: {np.min(dgzdz_0)}')
-    print(f'first order max at 0: {np.max(dgzdz_0)}')
-    print(f'first order min at 100: {np.min(dgzdz_100)}')
-    print(f'first order max at 100: {np.max(dgzdz_100)}')
+    # print(f'first order min at 0: {np.min(dgzdz_0)}')
+    # print(f'first order max at 0: {np.max(dgzdz_0)}')
+    # print(f'first order min at 100: {np.min(dgzdz_100)}')
+    # print(f'first order max at 100: {np.max(dgzdz_100)}')
 
-    fig.suptitle('Survey Results using a First Order Finite Difference', fontweight='bold', fontsize=14)
+    fig.suptitle('Survey Results using a \nFirst Order Finite Difference', fontweight='bold', fontsize=18)
     plt.savefig('../figures/first_order_finite_difference.png', dpi=300)
     plt.show()
 
@@ -228,8 +225,7 @@ def main():
     ax3.set_xlabel('x [m]', fontsize=8), ax3.set_ylabel('y [m]', fontsize=8)
     fig.colorbar(cbar, ax=ax3)
 
-
-    fig.suptitle('Vertical Gravity Effect', fontweight='bold', fontsize=14)
+    fig.suptitle('Vertical Gravity Effect', fontweight='bold', fontsize=26)
     plt.savefig('../figures/vert_grav_eff.png', dpi=300)
     plt.show()
 
@@ -273,12 +269,12 @@ def main():
     cbar = fig.colorbar(g_cf_5, ax=ax1)
     cbar.set_label('∂²gz/∂z²', fontsize=8), cbar.ax.tick_params(labelsize=8)
 
-    print(f'second order min at 0: {np.min(d2gzdz2_0_lp)}')
-    print(f'second order max at 0: {np.max(d2gzdz2_0_lp)}')
-    print(f'second order min at 100: {np.min(d2gzdz2_100_lp)}')
-    print(f'second order max at 100: {np.max(d2gzdz2_100_lp)}')
+    # print(f'second order min at 0: {np.min(d2gzdz2_0_lp)}')
+    # print(f'second order max at 0: {np.max(d2gzdz2_0_lp)}')
+    # print(f'second order min at 100: {np.min(d2gzdz2_100_lp)}')
+    # print(f'second order max at 100: {np.max(d2gzdz2_100_lp)}')
 
-    fig.suptitle('Survey Results using a Second Order Finite Difference', fontweight='bold', fontsize=14)
+    fig.suptitle('Survey Results using a \nSecond Order Finite Difference', fontweight='bold', fontsize=18)
     plt.savefig('../figures/second_order_finite_difference.png', dpi=300)
     plt.show()
 

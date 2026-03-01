@@ -130,7 +130,7 @@ def main():
         cbar = fig.colorbar(g_cf_25, ax=ax1)
         cbar.set_label('g [units]', fontsize=8),cbar.ax.tick_params(labelsize=8)
 
-    fig.suptitle('Survey of 25m for Multi Point Masses with Mass Set 1', fontweight='bold')
+    fig.suptitle('Survey of 25m for Multi Point Masses \nwith Mass Set 1', fontweight='bold', fontsize=26)
     plt.savefig('../figures/multi_mass_set_1_25m.png')
 
     plt.show()
@@ -162,7 +162,7 @@ def main():
         cbar = fig.colorbar(g_cf_5, ax=ax1)
         cbar.set_label('g [units]', fontsize=8),cbar.ax.tick_params(labelsize=8)
 
-    fig.suptitle('Survey of 5m for Multi Point Masses with Mass Set 1', fontweight='bold')
+    fig.suptitle('Survey of 5m for Multi Point Masses \nwith Mass Set 1', fontweight='bold', fontsize=26)
     plt.savefig('../figures/multi_mass_set_1_5m.png')
 
     plt.show()
@@ -194,7 +194,7 @@ def main():
         cbar = fig.colorbar(g_cf_25, ax=ax1)
         cbar.set_label('g [units]', fontsize=8),cbar.ax.tick_params(labelsize=8)
 
-    fig.suptitle('Survey of 25m for Multi Point Masses with Mass Set 2', fontweight='bold')
+    fig.suptitle('Survey of 25m for Multi Point Masses \nwith Mass Set 2', fontweight='bold', fontsize=26)
     plt.savefig('../figures/multi_mass_set_2_25m.png')
 
     plt.show()
@@ -226,7 +226,7 @@ def main():
         cbar = fig.colorbar(g_cf_5, ax=ax1)
         cbar.set_label('g [units]', fontsize=8),cbar.ax.tick_params(labelsize=8)
 
-    fig.suptitle('Survey of 5m for Multi Point Masses with Mass Set 2', fontweight='bold')
+    fig.suptitle('Survey of 5m for Multi Point Masses \nwith Mass Set 2', fontweight='bold', fontsize=26)
     plt.savefig('../figures/multi_mass_set_2_5m.png')
 
     plt.show()
@@ -258,7 +258,7 @@ def main():
         cbar = fig.colorbar(g_cf_25, ax=ax1)
         cbar.set_label('g [units]', fontsize=8),cbar.ax.tick_params(labelsize=8)
 
-    fig.suptitle('Survey of 25m for Multi Point Masses with Mass Set 3', fontweight='bold')
+    fig.suptitle('Survey of 25m for Multi Point Masses \nwith Mass Set 3', fontweight='bold', fontsize=26)
     plt.savefig('../figures/multi_mass_set_3_25m.png')
 
     plt.show()
@@ -291,7 +291,7 @@ def main():
         cbar = fig.colorbar(g_cf_5, ax=ax1)
         cbar.set_label('g [units]', fontsize=8),cbar.ax.tick_params(labelsize=8)
 
-    fig.suptitle('Survey of 5m for Multi Point Masses with Mass Set 3', fontweight='bold')
+    fig.suptitle('Survey of 5m for Multi Point Masses \nwith Mass Set 3', fontweight='bold', fontsize=26)
     plt.savefig('../figures/multi_mass_set_3_5m.png')
 
     plt.show()

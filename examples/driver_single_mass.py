@@ -59,7 +59,7 @@ def main():
     U_levels = np.linspace(Umin, Umax, 40)
     g_levels = np.linspace(gmin, gmax, 40)
 
-    fig, axes = plt.subplots(3, 2, figsize=(12, 16))  # 3 rows, 2 columns
+    fig, axes = plt.subplots(3, 2, figsize=(12, 14))  # 3 rows, 2 columns
     for k, z_val in enumerate(zp):
         # U plot (left column)
         ax = axes[k, 0]
@@ -80,7 +80,7 @@ def main():
         cbar = fig.colorbar(g_cf_25, ax=ax1)
         cbar.set_label('g [units]', fontsize=8),cbar.ax.tick_params(labelsize=8)
 
-    fig.suptitle('Survey of 25m for a Single Point Mass', fontweight='bold')
+    fig.suptitle(f'Survey of 25m for \na Single Point Mass', fontweight='bold', fontsize=26)
     plt.savefig('../figures/single_mass_25m.png')
 
     plt.show()
@@ -91,7 +91,7 @@ def main():
     U_levels = np.linspace(Umin, Umax, 40)
     g_levels = np.linspace(gmin, gmax, 40)
 
-    fig, axes = plt.subplots(3, 2, figsize=(12, 16))  # 3 rows, 2 columns
+    fig, axes = plt.subplots(3, 2, figsize=(12, 14))  # 3 rows, 2 columns
     for k, z_val in enumerate(zp):
         # U plot (left column)
         ax = axes[k, 0]
@@ -112,7 +112,7 @@ def main():
         cbar = fig.colorbar(g_cf_5, ax=ax1)
         cbar.set_label('g [units]', fontsize=8),cbar.ax.tick_params(labelsize=8)
 
-    fig.suptitle('Survey of 5m for a Single Point Mass', fontweight='bold')
+    fig.suptitle(f'Survey of 5m for \na Single Point Mass', fontweight='bold', fontsize=26)
     plt.savefig('../figures/single_mass_5m.png')
 
     plt.show()
